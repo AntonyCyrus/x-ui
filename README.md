@@ -52,9 +52,10 @@ bash <(wget -qO- bash.spiritlhl.net/ecs)
 ```
 
 ### 三网回程路由测试直观版
+此处鸣谢 @oneclickvirt
 
 ```bash
-curl https://raw.githubusercontent.com/oneclickvirt/backtrace/main/backtrace_install.sh -sSf | bash && backtrace
+curl -L https://raw.githubusercontent.com/oneclickvirt/ecs/master/goecs.sh -o goecs.sh && chmod +x goecs.sh && bash goecs.sh env && bash goecs.sh install && goecs
 ```
 
 ### 流媒体解锁检测
