@@ -73,3 +73,30 @@ sudo ufw allow 22
 ```bash
 sudo ufw enable
 ```
+
+## 安装并启用Nginx
+
+### 更新软件包索引
+
+```bash
+sudo apt update
+```
+
+### 安装 Nginx
+
+```bash
+sudo apt install nginx
+```
+
+### 启动 Nginx 服务
+启用 Nginx 在启动时自动启动
+
+```bash
+sudo systemctl enable nginx
+```
+
+启动 Nginx 服务
+
+```bash
+sudo systemctl start nginx
+```
