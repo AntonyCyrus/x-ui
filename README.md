@@ -58,7 +58,7 @@ curl -L https://raw.githubusercontent.com/oneclickvirt/ecs/master/goecs.sh -o go
 bash <(curl -L -s media.ispvps.com)
 ```
 
-## 安装并启用防火墙
+## 安装并启用防火墙（可选）
 
 
 ```bash
@@ -99,4 +99,17 @@ sudo systemctl enable nginx
 
 ```bash
 sudo systemctl start nginx
+```
+
+### 验证 Nginx 是否成功运行
+
+```bash
+sudo systemctl status nginx
+```
+
+### 配置防火墙（如果启用了 UFW）
+如果你使用 UFW 作为防火墙，你需要允许 HTTP 和 HTTPS 流量。运行以下命令：
+
+```bash
+sudo ufw allow 'Nginx Full'
 ```
