@@ -250,13 +250,13 @@ sudo certbot renew --dry-run
 ###### 添加 Cron 任务（如果需要）
 如果系统没有自动添加续期任务，您可以手动添加一个 cron 任务，每天检查证书并在必要时续期。
 
-####### 编辑
+编辑
 
 ```bash
 sudo crontab -e
 ```
 
-####### 添加以下行以确保证书每月自动续期
+添加以下行以确保证书每月自动续期
 
 ```bash
 0 0 * * * certbot renew --quiet && systemctl reload nginx
