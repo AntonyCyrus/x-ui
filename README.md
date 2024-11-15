@@ -113,3 +113,18 @@ sudo systemctl status nginx
 ```bash
 sudo ufw allow 'Nginx Full'
 ```
+
+### 配置 Nginx（可选）
+Nginx 默认配置文件位于 /etc/nginx/nginx.conf，网站的配置文件通常放在 /etc/nginx/sites-available/ 目录中，并通过符号链接到 /etc/nginx/sites-enabled/ 来启用。
+
+### 检查 Nginx 配置文件的正确性
+
+```bash
+sudo nginx -t
+```
+
+### 重新加载 Nginx 配置
+
+```bash
+sudo systemctl reload nginx
+```
