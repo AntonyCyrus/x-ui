@@ -185,7 +185,8 @@ sudo nginx -t
 ### 重新加载 Nginx 配置
 
 ```bash
-
+sudo systemctl reload nginx
+```
 
 ## 通过Cloudflare DNS验证申请SSL证书并配置自动更新
 
@@ -259,7 +260,4 @@ sudo crontab -e
 
 ```bash
 0 0 * * * certbot renew --quiet && systemctl reload nginx
-```
-
-sudo systemctl reload nginx
 ```
