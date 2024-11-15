@@ -45,13 +45,7 @@ sudo apt clean
 
 ## 使用一键脚本检测VPS信息（可选）
 
-### VPS检测
-
-```bash
-bash <(wget -qO- bash.spiritlhl.net/ecs)
-```
-
-### 三网回程路由测试直观版
+### 融合怪测试脚本
 此处鸣谢 @oneclickvirt
 
 ```bash
