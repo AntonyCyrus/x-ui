@@ -82,19 +82,19 @@ bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.s
 
 ## 安装并启用Nginx
 
-### 更新软件包索引
+### 步骤 1：更新软件包索引
 
 ```bash
 sudo apt update
 ```
 
-### 安装 Nginx
+### 步骤 2：安装 Nginx
 
 ```bash
 sudo apt install nginx
 ```
 
-### 启动 Nginx 服务
+### 步骤 3：启动 Nginx 服务
 启用 Nginx 在启动时自动启动
 
 ```bash
@@ -107,20 +107,20 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
 
-### 验证 Nginx 是否成功运行
+### 步骤 4：验证 Nginx 是否成功运行
 
 ```bash
 sudo systemctl status nginx
 ```
 
-### 配置防火墙（如果启用了 UFW）
+### 步骤 5：配置防火墙（如果启用了 UFW）
 如果你使用 UFW 作为防火墙，你需要允许 HTTP 和 HTTPS 流量。运行以下命令：
 
 ```bash
 sudo ufw allow 'Nginx Full'
 ```
 
-### 配置 Nginx（可选）（在申请SSL证书后进行此操作）
+### 步骤 6：配置 Nginx（可选）（在申请SSL证书后进行此操作）
 Nginx 默认配置文件位于 /etc/nginx/nginx.conf，网站的配置文件通常放在 /etc/nginx/sites-available/ 目录中，并通过符号链接到 /etc/nginx/sites-enabled/ 来启用。
 
 Nginx 配置示例：
@@ -176,13 +176,13 @@ server {
 }
 ```
 
-### 检查 Nginx 配置文件的正确性
+### 步骤 7：检查 Nginx 配置文件的正确性
 
 ```bash
 sudo nginx -t
 ```
 
-### 重新加载 Nginx 配置
+### 步骤 8：重新加载 Nginx 配置
 
 ```bash
 sudo systemctl reload nginx
@@ -190,42 +190,50 @@ sudo systemctl reload nginx
 
 ## 通过Cloudflare DNS验证申请SSL证书并配置自动更新
 
-### 获取 Cloudflare API Token
+### 步骤 1：获取 Cloudflare API Token
+首先，您需要从 Cloudflare 获取一个 API token，该 token 允许 Certbot 使用 Cloudflare 的 DNS 来完成 DNS 验证。
 
-### 安装 Certbot 和 Cloudflare 插件
+登录到 Cloudflare Dashboard。
+进入 "My Profile"（个人资料） > API Tokens。
+点击 "Create Token"。
+在模板中选择 "Zone DNS"（Zone DNS 编辑权限）。
+为您的域名创建一个 API Token，确保它有足够的权限来管理 DNS 记录。
+保存生成的 API Token。
+
+### 步骤 2：安装 Certbot 和 Cloudflare 插件
 
 ```bash
 sudo apt update
 sudo apt install certbot python3-certbot-dns-cloudflare
 ```
 
-### 配置 Cloudflare API Token
+### 步骤 3：配置 Cloudflare API Token
 为了让 Certbot 使用 Cloudflare API 来进行 DNS 验证，您需要创建一个配置文件来存储 API Token。假设您将该文件保存在 /etc/letsencrypt/cloudflare.ini。
 
-#### 创建配置文件 cloudflare.ini 
+#### 步骤 4：创建配置文件 cloudflare.ini 
 
 ```bash
 sudo nano /etc/letsencrypt/cloudflare.ini
 ```
 
-#### 将以下内容添加到文件中
+#### 步骤 5：将以下内容添加到文件中
 
 ```bash
 dns_cloudflare_api_token = YOUR_CLOUDFLARE_API_TOKEN
 ```
 
-#### 保存并退出编辑器
+#### 步骤 6：保存并退出编辑器
 
-#### 修改文件权限以确保安全
+#### 步骤 7：修改文件权限以确保安全
 
 ```bash
 sudo chmod 600 /etc/letsencrypt/cloudflare.ini
 ```
 
-#### 申请 SSL 证书
+#### 步骤 8：申请 SSL 证书
 使用 Certbot 来申请 SSL 证书，并通过 Cloudflare DNS 验证。
 
-##### 运行以下命令来申请证书：
+##### 步骤 9：运行以下命令来申请证书：
 请将 example.com 替换为您的域名。此命令会自动使用 Cloudflare 的 DNS API 来完成 DNS 记录的创建和验证。
 
 ```bash
@@ -237,17 +245,17 @@ sudo certbot certonly \
     --non-interactive
 ```
 
-##### 配置自动续期
+##### 步骤 10：配置自动续期
 Certbot 默认会自动配置证书的续期，但是您需要确保 Certbot 正确设置了自动续期任务。
 
-###### 验证 Certbot 自动续期是否正常工作
+###### 步骤 11：验证 Certbot 自动续期是否正常工作
 Certbot 会创建一个 cron 任务或 systemd 服务来自动续期证书。您可以检查续期配置
 
 ```bash
 sudo certbot renew --dry-run
 ```
 
-###### 添加 Cron 任务（如果需要）
+###### 步骤 12：添加 Cron 任务（如果需要）
 如果系统没有自动添加续期任务，您可以手动添加一个 cron 任务，每天检查证书并在必要时续期。
 
 编辑
