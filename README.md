@@ -210,30 +210,30 @@ sudo apt install certbot python3-certbot-dns-cloudflare
 ### 步骤 3：配置 Cloudflare API Token
 为了让 Certbot 使用 Cloudflare API 来进行 DNS 验证，您需要创建一个配置文件来存储 API Token。假设您将该文件保存在 /etc/letsencrypt/cloudflare.ini。
 
-#### 步骤 4：创建配置文件 cloudflare.ini 
+#### 创建配置文件 cloudflare.ini 
 
 ```bash
 sudo nano /etc/letsencrypt/cloudflare.ini
 ```
 
-#### 步骤 5：将以下内容添加到文件中
+#### 将以下内容添加到文件中
 
 ```bash
 dns_cloudflare_api_token = YOUR_CLOUDFLARE_API_TOKEN
 ```
 
-#### 步骤 6：保存并退出编辑器
+#### 保存并退出编辑器
 
-#### 步骤 7：修改文件权限以确保安全
+#### 修改文件权限以确保安全
 
 ```bash
 sudo chmod 600 /etc/letsencrypt/cloudflare.ini
 ```
 
-#### 步骤 8：申请 SSL 证书
+### 步骤 4： 申请 SSL 证书
 使用 Certbot 来申请 SSL 证书，并通过 Cloudflare DNS 验证。
 
-##### 步骤 9：运行以下命令来申请证书：
+##### 运行以下命令来申请证书：
 请将 example.com 替换为您的域名。此命令会自动使用 Cloudflare 的 DNS API 来完成 DNS 记录的创建和验证。
 
 ```bash
@@ -245,17 +245,17 @@ sudo certbot certonly \
     --non-interactive
 ```
 
-##### 步骤 10：配置自动续期
+### 步骤 5：配置自动续期
 Certbot 默认会自动配置证书的续期，但是您需要确保 Certbot 正确设置了自动续期任务。
 
-###### 步骤 11：验证 Certbot 自动续期是否正常工作
+#### 验证 Certbot 自动续期是否正常工作
 Certbot 会创建一个 cron 任务或 systemd 服务来自动续期证书。您可以检查续期配置
 
 ```bash
 sudo certbot renew --dry-run
 ```
 
-###### 步骤 12：添加 Cron 任务（如果需要）
+#### 添加 Cron 任务（如果需要）
 如果系统没有自动添加续期任务，您可以手动添加一个 cron 任务，每天检查证书并在必要时续期。
 
 编辑
