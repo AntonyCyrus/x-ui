@@ -56,3 +56,9 @@ bash <(wget -qO- bash.spiritlhl.net/ecs)
 ```bash
 curl https://raw.githubusercontent.com/oneclickvirt/backtrace/main/backtrace_install.sh -sSf | bash && backtrace
 ```
+
+### 流媒体解锁检测
+
+```bash
+bash <(curl -L -s media.ispvps.com)
+```
