@@ -123,6 +123,12 @@ sudo ufw allow 'Nginx Full'
 ### 步骤 6：配置 Nginx（可选）（在申请SSL证书后进行此操作）
 Nginx 默认配置文件位于 /etc/nginx/nginx.conf，网站的配置文件通常放在 /etc/nginx/sites-available/ 目录中，并通过符号链接到 /etc/nginx/sites-enabled/ 来启用。
 
+生成指定域名配置文件
+
+```bash
+sudo nano /etc/nginx/sites-available/
+```
+
 Nginx 配置示例：
 
 ```bash
@@ -176,6 +182,15 @@ server {
 }
 ```
 
+保存修改并关闭编辑器。对于 nano，按 CTRL + O 保存，然后按 CTRL + X 退出。
+
+创建符号链接
+使用 ln -s 命令将配置文件从 sites-available 目录链接到 sites-enabled 目录
+
+```bash
+sudo ln -s /etc/nginx/sites-available/my_site /etc/nginx/sites-enabled/
+```
+
 ### 步骤 7：检查 Nginx 配置文件的正确性
 
 ```bash
@@ -222,7 +237,7 @@ sudo nano /etc/letsencrypt/cloudflare.ini
 dns_cloudflare_api_token = YOUR_CLOUDFLARE_API_TOKEN
 ```
 
-#### 保存并退出编辑器
+保存修改并关闭编辑器。对于 nano，按 CTRL + O 保存，然后按 CTRL + X 退出。
 
 #### 修改文件权限以确保安全
 
@@ -269,3 +284,5 @@ sudo crontab -e
 ```bash
 0 0 * * * certbot renew --quiet && systemctl reload nginx
 ```
+
+保存修改并关闭编辑器。对于 nano，按 CTRL + O 保存，然后按 CTRL + X 退出。
