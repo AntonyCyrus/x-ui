@@ -73,6 +73,12 @@ sudo ufw allow 22
 ```bash
 sudo ufw enable
 ```
+## 安装并启用x-ui
+此处鸣谢 @alireza0
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.sh)
+```
 
 ## 安装并启用Nginx
 
