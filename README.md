@@ -57,3 +57,19 @@ curl -L https://raw.githubusercontent.com/oneclickvirt/ecs/master/goecs.sh -o go
 ```bash
 bash <(curl -L -s media.ispvps.com)
 ```
+
+## 安装并启用防火墙
+
+
+```bash
+sudo apt install ufw
+```
+
+
+```bash
+sudo ufw allow 22
+```
+
+```bash
+sudo ufw enable
+```
