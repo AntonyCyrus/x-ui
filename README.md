@@ -42,3 +42,17 @@ sudo apt autoremove
 ```bash
 sudo apt clean
 ```
+
+## 使用一键脚本检测VPS信息（可选）
+
+### VPS检测
+
+```bash
+bash <(wget -qO- bash.spiritlhl.net/ecs)
+```
+
+### 三网回程路由测试直观版
+
+```bash
+curl https://raw.githubusercontent.com/oneclickvirt/backtrace/main/backtrace_install.sh -sSf | bash && backtrace
+```
