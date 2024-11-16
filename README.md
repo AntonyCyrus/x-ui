@@ -266,6 +266,7 @@ sudo certbot certonly \
 运行完指令后等待申请完成。注意证书和密钥保存位置提示
 
 Certificate is saved at: 
+
 Key is saved at:         
 
 ### 步骤 5：配置自动续期
