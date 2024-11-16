@@ -264,8 +264,9 @@ sudo certbot certonly \
 注意此处需要修改三处变量：根域名，通配符域名和Let’s Encrypt注册邮箱
 
 运行完指令后等待申请完成。注意证书和密钥保存位置提示
-    Certificate is saved at: 
-    Key is saved at:         
+
+Certificate is saved at: 
+Key is saved at:         
 
 ### 步骤 5：配置自动续期
 Certbot 默认会自动配置证书的续期，但是您需要确保 Certbot 正确设置了自动续期任务。
