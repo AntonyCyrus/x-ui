@@ -279,6 +279,17 @@ Certbot 会创建一个 cron 任务或 systemd 服务来自动续期证书。您
 sudo certbot renew --dry-run
 ```
 
+返还结果
+Congratulations, all simulated renewals succeeded: 
+意味着自动续期成功
+
+#### 手动验证续期状态
+运行以下命令，查看当前证书的状态和续期计划：
+
+```bash
+sudo certbot certificates
+```
+
 #### 添加 Cron 任务（如果需要）
 如果系统没有自动添加续期任务，您可以手动添加一个 cron 任务，每天检查证书并在必要时续期。
 
